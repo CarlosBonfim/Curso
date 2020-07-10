@@ -1,0 +1,111 @@
+<style>
+    .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    background-color: rgba(0,0,0,0.8);
+    border-radius: 3px 0 0 3px;
+
+  }
+  .next {
+    right: 0;
+    
+  }
+  .div1{
+    display: none;
+  }
+
+  .slideshow-container {
+    max-width: 800px;
+    position: relative;
+    margin:auto;
+}
+body{
+  background-color: darkslategrey;
+}
+
+    
+</style>
+<!-- <div id="div1">
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem1.jpg" alt="Imagem de um mar" width="513" height="342" title="titulo">
+</p>
+
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem2.gif" alt="intro cod3r" height="342">
+</p>
+
+<p>
+    <img src="http://files.cod3r.com.br/curso-web/imagem1.png" alt="">
+</p>
+
+
+<p class="circular">
+    <img src="http://files.cod3r.com.br/curso-web/imagem3.png" alt="">
+</p>
+
+<p>
+    <picture>
+        <source srcset="http://files.cod3r.com.br/curso-web/logo-larga.png" media="(min-width: 600px)">
+        <img src="http://files.cod3r.com.br/curso-web/logo-estreita.png" alt="Logo">
+    </picture>
+</p>
+</div>
+
+<style>
+    .circular {
+        width: 513px;
+        background-color: #444;
+    }
+</style>
+-->
+<div class="slideshow-container">
+
+    <div class="mySlides fade">
+      <img src="images/1.jpg" style="width:100%" alt="Era pra ser a imagem 1" width="513" height="342" title="titulo"> 
+    </div>
+    
+    <div class="mySlides fade">
+      <img src="images/2.png" style="width:100%" width="513" height="342" title="titulo"  >
+    </div>
+    
+    <div class="mySlides fade">
+      <img src="images/3.png" style="width:100%" width="513" height="342" title="titulo">
+    </div>
+    
+    <a class="prev" onclick="proximo(-1)">&#10094;</a> 
+    <a class="next" onclick="proximo(1)">&#10095;</a>
+    
+    </div>
+    <br>
+    
+    <script>
+    var slideIndex = 1; //criando posição inicial do slide
+    mostrarSlide(slideIndex); //inicializando a função passando slideIndex como posição
+    
+    function proximo(n) {//sera a função a ser chamada para passar o slide(Sera acionada pelos dots)
+      mostrarSlide(slideIndex = slideIndex + n);  //sera adicionado mais um na posiçao atual do slide
+    }
+
+    function mostrarSlide(n) {//função que sera realiada as trocas de slide
+      let i; //variavel do for
+
+      const slides = document.getElementsByClassName("mySlides"); //pra pegar as divs de slides
+    
+    
+      if (n > slides.length)//semrpe pra puxar o slide para a posição 1
+        {slideIndex = 1}  
+    
+      if (n < 1 ) 
+        {slideIndex = slides.length}
+
+      for (i = 0; i < slides.length; i++) {// vai percorrer as divs dos slides
+         slides[i].style.display = "none";  //vai percorrer o array dos slides dos slides colocando os como none
+      }
+      slides[slideIndex-1].style.display = "block";  //função block a exibição do slide na posição anterior
+    }
+    </script>

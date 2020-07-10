@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exercícios HTML</title>
+</head>
+
+<body>
+    <header>Exercícios HTML</header>
+    <br>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <nav id = topo class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href wm-nav="exercicios/teste.html">00 - Teste</a>
+        <a  href wm-nav="exercicios/texto1.html">01 - Texto1</a>
+        <a  href wm-nav="exercicios/listas.html">02 - listas</a>
+        <a  href wm-nav="exercicios/listasAninhadas.html">03 - listas Aninhadas</a>
+        <a  href wm-nav="exercicios/links.html">04 - links</a>
+        <a  href wm-nav="exercicios/tabelas.html">05 - tabelas</a>
+        <a  href wm-nav="exercicios/form/forms.html">06 - formularios</a>
+        <a  href wm-nav="exercicios/imagens.html">07 - imagens</a>
+        <a  href wm-nav="exercicios/video.html">08 - videos</a>
+    </nav>
+    </div>
+    
+    <br>
+    <br>
+    <section id = "conteudo"></section>
+
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+        const conteudo = document.getElementById('conteudo')
+
+        link.onclick = function(e){
+            e.preventDefault()
+            fetch(link.getAttribute('wm-nav'))
+                .then(resp => resp.text())
+                .then(html => conteudo.innerHTML = html)
+        }
+    })
+    </script> 
+    <h3>Curso Web Moderno</h3>
+</body>
+</html>

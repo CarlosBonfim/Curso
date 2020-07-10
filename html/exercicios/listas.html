@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2></h2>
+
+<ul>
+	<span wr-folder>An Unordered HTML List
+    	  <ol>
+         	<li>Coffee</li>
+          	<li>Tea</li>
+		 	<li>Milk</li>
+        </ol> 
+</ul>
+
+<script>
+	document.querySelectorAll('[wr-folder]').forEach(folder => {
+    	folder.onclick = function(e){
+        	const ol = folder.nextElementSibling
+          	const dis = ol.style.display
+          	ol.style.display = dis === 'none' ? 'block' : 'none'
+        }
+    })
+</script>
+
+</body>
+</html>

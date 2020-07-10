@@ -1,0 +1,13 @@
+    <button wm-play = "meuVideo" onclick=" pla() " >Play</button>
+    <button wm-pause = "meuVideo" onclick=" pau()" >Pause</button>
+
+function pla(){
+    if(meuVideo.paused)
+        meuVideo.play()
+}
+
+function pau(){
+    if(meuVideo.played){
+        meuVideo.pause()
+    }
+}
