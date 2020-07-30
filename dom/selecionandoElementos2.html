@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+    <style>
+        @font-face {
+            font-family: 'Oswald';
+            src: url('../fonts/Oswald-Regular.ttf') format('truetype');
+        }
+        
+        * {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        html {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            background-color: #0D262D;
+            color: #fff;
+            height: 100%;
+        }
+        
+        .conteudo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100%;
+        }
+        
+        .exercicio div {
+            font-size: 3em;
+            border: solid 5px #ffffff;
+            padding: 20px 40px;
+            margin: 10px;
+        }
+        
+        .exercicio div:nth-of-type(1) {
+            background-color: #b8860b;
+        }
+        
+        .exercicio div:nth-of-type(2) {
+            background-color: #dc143c;
+        }
+        
+        .exercicio div:nth-of-type(3) {
+            background-color: #008b8b;
+        }
+        
+        .exercicio div:nth-of-type(4) {
+            background-color: #9932cc;
+        }
+        
+        .exercicio .destaque {
+            border: solid 10px #adff2f;
+            color: #adff2f;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+
+        const descelecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        selecionar('div')
+        descelecionar('*')
+        selecionar('.terceiro.ultimo')
+        descelecionar('*')
+        selecionar(':not(#primeiro)')
+        descelecionar('*')
+        selecionar('div:nth-of-type(1)')
+        descelecionar('*')
+        selecionar('[wb-attrib]')
+    </script>
+</body>
+
+</html>
