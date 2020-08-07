@@ -11,6 +11,42 @@
     <h1>Estados</h1>
 
     <script>
-        // ...
+        //const body = document.querySelector('body')
+
+        function ajax(config) {
+            const xhr = new XMLHttpRequest()
+            xhr.open(config.metodo, config.url, true)
+
+            xhr.onreadystatechange = e => { //sera chamada toda vez que o status da requisiçao mudar
+                if (xhr.readyState === 4) { // se readystate estiver no status 4 
+                    if (xhr.status === 200) { //se nao houve erro
+                        config.sucesso(xhr.responseXML)
+                    } else if (xhr.status >= 400) { //se houve erro
+                        config.erro({
+                            code: xhr.status,
+                            texto: xhr.statusText
+                        })
+                    }
+                }
+            }
+            xhr.send()
+        }
+        ajax({
+            url: "dados/estados.xml",
+            metodo: "get",
+            sucesso(resposta) {
+                const estados = resposta.getElementsByTagName('estado')
+                const itens = Array.from(estados).reduce(
+                    (html, estado) => html + `<li>${estado.attributes.nome.value}</li>`, '' //tem que passar essa string vazia 
+                )
+                document.body.insertAdjacentHTML('beforeend', `<ul>${itens}</ul>`) //insertadjacenthtml pede posição e texto
+
+            },
+            erro(e) {
+                const msg = document.createTextNode(`${e.codigo}: ${e.texto}`)
+                document.body.appendChild(msg) //pra inserir no ultimo filho de body
+            }
+
+        })
     </script>
 </body>

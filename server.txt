@@ -1,0 +1,13 @@
+const bodyParser = require('body-parser')
+const express = require('express')
+const app = express()
+
+app.use(express.static('.')) //usa para entregar arquivos estaticos como imagens
+app.use(bodyParser.urlencoded({ extended: true })) //caso venha como submit
+app.use(bodyParser.json()) //se vier como json nos converte
+
+app.get('/teste', (req, res) => res.send('Ok')) //quando vir uma req do tipo get, cgama a função que recebe umma req res e responde ok)
+
+app.listen(8081, function() {
+    console.log('Executando...') //so pra saber se ta executando mesmo
+})
