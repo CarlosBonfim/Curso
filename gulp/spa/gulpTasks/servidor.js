@@ -16,6 +16,7 @@ function monitorarArquivos(cb) {
     watch('src/**/*.scss', () => gulp.series('appsCSS')())
     watch('src/**/*.js', () => gulp.series('appJS')())
     watch('src/assets/imgs/**/*.*', () => gulp.series('appIMG')())
+    return cb()
 }
 module.exports = {
     monitorarArquivos,
