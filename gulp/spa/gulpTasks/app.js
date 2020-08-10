@@ -13,9 +13,9 @@ function appHTML(cb) {
         .pipe(gulp.dest('build'))
 }
 
-function appCSS(cb) {
-    return gulp.src('src/assets/sass/index.scss')
-        .pipe(sass().on('error', sass.logError))
+function appCSS(cb) { //estrutura do gulp funcao
+    return gulp.src('src/assets/sass/index.scss') //o caminho  do arquivo a ser trabalhado
+        .pipe(sass().on('error', sass.logError)) //modificações
         .pipe(uglifycss({ "uglyCommnets": true }))
         .pipe(concat('app.min.css'))
         .pipe(gulp.dest('build/assets/css'))
@@ -34,7 +34,7 @@ function appIMG(cb) {
         .pipe(gulp.dest('build/assets/imgs'))
 }
 
-gulp.task('appHTML', appHTML)
+gulp.task('appHTML', appHTML) //referenciando que é uma task
 gulp.task('appCSS', appCSS)
 gulp.task('appJS', appJS)
 gulp.task('appIMG', appIMG)
