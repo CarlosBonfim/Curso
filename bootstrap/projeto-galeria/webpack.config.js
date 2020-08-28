@@ -24,6 +24,7 @@ module.exports = {
     },
     output: {
         filename: 'app.js',
+
         path: __dirname + '/build'
     },
     plugins: [
