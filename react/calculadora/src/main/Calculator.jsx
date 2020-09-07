@@ -36,8 +36,8 @@ export default class Calculator extends Component {
 
             try{
                 values[0]=eval(`${values[0]} ${currentOperation} ${values[1]}`)
-            }catch(e){
-                values[0] = this.setState.values[0]
+            } catch(e){
+                values[0] = this.state.values[0]
             }
             
             values[1]=0
@@ -53,12 +53,11 @@ export default class Calculator extends Component {
         }
     }
     addDigit(n){
-       if ( n==='.' && this.state.displayValue.includes('.')){
+       if ( n ==='.' && this.state.displayValue.includes('.')){
            return
        }
 
-       const clearDisplay = this.state.displayValue === '0'
-        ||this.state.clearDisplay
+       const clearDisplay = this.state.displayValue === '0' ||this.state.clearDisplay
         const currentValue = clearDisplay ? '' : this.state.displayValue
         const displayValue = currentValue + n
         this.setState({displayValue, clearDisplay: false})
