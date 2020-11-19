@@ -1,12 +1,17 @@
 <template>
   <div id="app">
       <h1>Problema de Montyhall</h1>
+      <Gift />
   </div>
+  
+  
 </template>
 
 <script>
+import Gift from './components/Gift.vue'
 export default {
-
+  name: 'App',
+  components: {Gift}
 }
 </script>
 
@@ -31,4 +36,6 @@ export default {
     padding: 20px;
     margin-bottom: 60px;
   }
+
+
 </style>
