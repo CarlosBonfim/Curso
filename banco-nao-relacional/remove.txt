@@ -1,0 +1,1 @@
+db.estados.update({sigla:SP"}, {$push{populacao: 45000000}})
